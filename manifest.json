@@ -1,20 +1,32 @@
 {
   "manifest_version": 2,
-
-  "name": "Shruggie",
-  "short_name": "Shruggie",
-  "description": "This extension copies the shruggie character to your clipboard",
-  "version": "0.2",
-  "offline_enabled":true,
+  "name": "custrefresh",
+  "short_name": "custrefresh",
+  "description": "custrefresh for covid vax",
+  "version": "0.1",
+  "offline_enabled": true,
   "browser_action": {
-    "default_icon": "shruggie-full.png",
-    "default_popup": "popup.html"
+    "default_icon": "shruggie-full.png"
   },
-  "permissions": [
-    "clipboardWrite"
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.health.ny.gov/*"
+      ],
+      "js": [
+        "jquery-3.6.0.slim.min.js",
+        "contentScript.js"
+      ]
+    }
   ],
-  "icons": { "16": "shruggie-16.png",
-           "32": "shruggie-32.png",
-           "48": "shruggie-48.png",
-          "128": "shruggie-128.png" }
+  "icons": {
+    "16": "shruggie-16.png",
+    "32": "shruggie-32.png",
+    "48": "shruggie-48.png",
+    "128": "shruggie-128.png"
+  },
+  "web_accessible_resources": [
+    "sound.mp3"
+  ]
 }
